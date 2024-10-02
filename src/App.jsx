@@ -10,12 +10,19 @@ function App() {
   const [selectedProject, setSelectedProject] = useState(null);
 
   const addProject = (project) => {
-    setProjects([...projects, project]);
+    setProjects((prevProjects) => [...prevProjects, project]);
     setShowNewProject(false);
   };
 
   const selectProject = (project) => {
     setSelectedProject(project);
+  };
+
+  const deleteProject = (project) => {
+    setProjects((prevProjects) =>
+      prevProjects.filter((p) => p.title !== project.title)
+    );
+    setSelectedProject(null);
   };
 
   return (
@@ -32,7 +39,10 @@ function App() {
             onCancel={() => setShowNewProject(false)}
           />
         ) : selectedProject ? (
-          <ProjectDetail project={selectedProject} />
+          <ProjectDetail
+            project={selectedProject}
+            onDeleteProject={() => deleteProject(selectedProject)}
+          />
         ) : (
           <WelcomePage onAddProject={() => setShowNewProject(true)} />
         )}

@@ -14,14 +14,11 @@ const Sidebar = ({ projects, onAddProject, onSelectProject }) => {
 
       <ul>
         {projects.map((project, index) => (
-          <button
-            key={index}
-            onClick={() => {
-              onSelectProject(project);
-            }}
-          >
-            <li className="text-stone-200 mt-2">{project.title}</li>
-          </button>
+          <li key={index} className="text-stone-200 mt-2">
+            <button onClick={() => onSelectProject(project)}>
+              {project.title}
+            </button>
+          </li>
         ))}
       </ul>
     </div>
