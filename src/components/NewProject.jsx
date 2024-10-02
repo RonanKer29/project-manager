@@ -1,15 +1,17 @@
 import Input from "./Input.jsx";
 import { useState } from "react";
 
+//* NewProject component to create a new project
 const NewProject = ({ onSave, onCancel }) => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [dueDate, setDueDate] = useState("");
+  const [title, setTitle] = useState(""); //* State to store project title
+  const [description, setDescription] = useState(""); //* State to store project description
+  const [dueDate, setDueDate] = useState(""); //* State to store project due date
 
+  //* Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     onSave({ title, description, dueDate });
-    // Reset form values
+    //* Reset form values
     setTitle("");
     setDescription("");
     setDueDate("");

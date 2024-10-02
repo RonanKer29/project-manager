@@ -1,23 +1,27 @@
-import NewProject from "./components/NewProject";
-import Sidebar from "./components/Sidebar";
-import WelcomePage from "./components/WelcomePage";
 import { useState } from "react";
+import Sidebar from "./components/Sidebar";
+import NewProject from "./components/NewProject";
 import ProjectDetail from "./components/ProjectDetail";
+import WelcomePage from "./components/WelcomePage";
 
+//* Main App component
 function App() {
-  const [projects, setProjects] = useState([]);
-  const [showNewProject, setShowNewProject] = useState(false);
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [projects, setProjects] = useState([]); //* State to store projects
+  const [showNewProject, setShowNewProject] = useState(false); //* State to show/hide NewProject component
+  const [selectedProject, setSelectedProject] = useState(null); //* State to store selected project
 
+  //* Function to add a new project
   const addProject = (project) => {
     setProjects((prevProjects) => [...prevProjects, project]);
     setShowNewProject(false);
   };
 
+  //* Function to select a project
   const selectProject = (project) => {
     setSelectedProject(project);
   };
 
+  //* Function to delete a project
   const deleteProject = (project) => {
     setProjects((prevProjects) =>
       prevProjects.filter((p) => p.title !== project.title)

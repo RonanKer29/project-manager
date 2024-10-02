@@ -1,3 +1,6 @@
+// *Sidebar component to display list of projects
+// *#############################################
+
 const Sidebar = ({ projects, onAddProject, onSelectProject }) => {
   return (
     <div className="w-1/3 px-8 py-16 md:w-72 bg-gray-800 shadow-lg rounded-r-xl mt-10">
