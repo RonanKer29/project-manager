@@ -1,8 +1,14 @@
 import React from "react";
+import noProjectImage from "../assets/no-projects.png";
 
 const WelcomePage = ({ onAddProject }) => {
   return (
     <div className="flex flex-col items-center justify-center w-full h-full gap-6">
+      <img
+        src={noProjectImage}
+        alt="project image"
+        className="w-16 h-16 object-contain mx-auto"
+      />
       <h1 className="text-xl font-bold">No Projects selected</h1>
       <p>Select a project in the sidebar or create a new one</p>
       <button
